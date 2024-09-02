@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '@/assets/logo.png';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
     return (
@@ -7,9 +8,9 @@ const Header: React.FC = () => {
             <img src={logo} alt="ロゴ" className="h-8" />
             <nav>
                 <ul className="flex space-x-4">
-                    <li><a href="#" className="text-gray-600 hover:text-gray-900">ホーム</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-900">ギャラリー</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-900">お問い合わせ</a></li>
+                    <li><Link to="/" className="text-gray-600 hover:text-gray-900">ホーム</Link></li>
+                    <li><Link to="/" className="text-gray-600 hover:text-gray-900">ギャラリー</Link></li>
+                    <li><Link to="/generate" className="text-gray-600 hover:text-gray-900">画像生成</Link></li>
                 </ul>
             </nav>
         </header>

@@ -1,12 +1,30 @@
-import { Label } from "@/components/ui/label"
-import SelectComponent from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
-import PromptArea from "@/components/page-ui/generate/pronptarea"
+import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { Label } from "@/components/ui/label";
+import SelectComponent from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import PromptArea from "@/components/page-ui/generate/promptarea";
+import { promptAtom } from "@/atoms/promptAtoms";
 
 export default function Component() {
+    const [promptState] = useAtom(promptAtom);
+    const [prompt, setPrompt] = useState(promptState.prompt);
+    const [negativePrompt, setNegativePrompt] = useState(promptState.negative_prompt);
+    const [width, setWidth] = useState(promptState.width);
+    const [height, setHeight] = useState(promptState.height);
+    const [tags, setTags] = useState(promptState.tags);
+
+    useEffect(() => {
+        setPrompt(promptState.prompt);
+        setNegativePrompt(promptState.negative_prompt);
+        setWidth(promptState.width);
+        setHeight(promptState.height);
+        setTags(promptState.tags);
+    }, [promptState]);
+
     return (
-        <div className="flex flex-col md:flex-row">
-            <aside className="w-full md:w-1/4 p-4 border-r">
+        <div className="flex flex-col md:flex-row bg-white text-black">
+            <aside className="w-full md:w-1/4 p-4 border-r border-black">
                 <div className="space-y-4">
                     <div>
                         <h2 className="text-lg font-bold">一般設定</h2>
@@ -66,43 +84,12 @@ export default function Component() {
                 </div>
                 </div>
             </aside>
-            <main className="flex-1 p-4">
-                <div className="grid grid-cols-2 gap-4">
-                    <img
-                        src="/placeholder.svg"
-                        alt="Generated Image 1"
-                        className="rounded-lg"
-                        width="150"
-                        height="200"
-                        style={{ aspectRatio: "150/200", objectFit: "cover" }}
-                    />
-                    <img
-                        src="/placeholder.svg"
-                        alt="Generated Image 2"
-                        className="rounded-lg"
-                        width="150"
-                        height="200"
-                        style={{ aspectRatio: "150/200", objectFit: "cover" }}
-                    />
-                    <img
-                        src="/placeholder.svg"
-                        alt="Generated Image 3"
-                        className="rounded-lg"
-                        width="150"
-                        height="200"
-                        style={{ aspectRatio: "150/200", objectFit: "cover" }}
-                    />
-                    <img
-                        src="/placeholder.svg"
-                        alt="Generated Image 4"
-                        className="rounded-lg"
-                        width="150"
-                        height="200"
-                        style={{ aspectRatio: "150/200", objectFit: "cover" }}
-                    />
+            <div className="w-full p-4">
+                <div className="h-80 bg-black text-white">
+                    
                 </div>
-                <PromptArea />
-            </main>
+                <PromptArea prompt={prompt} negativePrompt={negativePrompt} />
+            </div>
         </div>
     )
 }

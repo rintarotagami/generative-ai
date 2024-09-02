@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom';
 import PromptInput from "@/components/page-ui/home/promptInput"
 import Gallery from "@/components/page-ui/home/gallery"
-import { Canvas } from '@react-three/fiber';
+import CanvasComponent from "@/components/page-ui/home/canvas"
 
 import noImage from "@/assets/noImage.png"
 
 export default function Component() {
   const topHeight = "80vh";
   const upperHeight = `calc(${topHeight} * 4 / 7)`;
+  const middleHeight = `calc(${topHeight} * 1 / 7)`;
   const lowerHeight = `calc(${topHeight} * 3 / 7)`;
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-neutral-700">
       <section id="top" className="relative flex flex-col items-center justify-end w-full bg-cover bg-center" style={{ height: upperHeight }} >
-        <Canvas className="absolute top-0 w-full z-0" style={{ height: topHeight }}>
+        <CanvasComponent className="absolute top-0 w-full z-10" style={{ height: topHeight }}>
           <ambientLight />
           <directionalLight position={[1, 1, 1]} intensity={3} />
           <directionalLight position={[-1, -1, -1]} intensity={3} color={0x002288} />
@@ -21,17 +22,18 @@ export default function Component() {
             <coneGeometry args={[10, 30, 4, 1]} />
             <meshPhongMaterial color={0xffffff} flatShading />
           </mesh>
-        </Canvas>
+        </CanvasComponent>
         <div className="z-10 text-center text-white space-y-4 w-3/4 px-4 pb-5">
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">AI画像生成の新時代へようこそ</h2>
           <p>AIを活用して、簡単に画像を生成できます。</p>
         </div>
       </section>
-      <div className="z-50 sticky top-24 flex justify-center w-full" style={{ height: lowerHeight }}>
+      <div className="z-50 sticky top-24 flex justify-center w-full" style={{ height: middleHeight }}>
         <PromptInput />
       </div>
+      <div className='w-full' style={{ height:lowerHeight }}></div>
       <section className="py-10 space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 p-4 rounded-lg shadow-lg">Make Itを使って簡単に画像生成</h2>
+        <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 p-4 rounded-lg shadow-lg">Make Itを使って簡単に画像生成</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="rounded-lg border border-gray-300 overflow-hidden">
             <div className="h-40 bg-gray-200">

@@ -1,5 +1,4 @@
 import {
-    BrowserRouter,
     Route,
     Routes
 } from "react-router-dom";
@@ -8,12 +7,10 @@ import Generate from '@/pages/generate';
 
 const AppRoutes = () => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/generate' element={<Generate />} />
-            </Routes>
-        </BrowserRouter>
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/generate' element={<Generate />} />
+        </Routes>
     )
 }
 

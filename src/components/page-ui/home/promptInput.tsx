@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
+import { useAtom } from 'jotai';
+import { promptAtom } from '@/atoms/promptAtoms';
 
 const PromptInput: React.FC = () => {
     const [prompt, setPrompt] = useState('');
+    const [promptState] = useAtom(promptAtom);
+
+    useEffect(() => {
+        if (prompt === '' || promptState.useTemplate) {
+            setPrompt(promptState.prompt);
+        }
+    }, [prompt, promptState]);
 
     const handlePromptChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPrompt(event.target.value);
     };
 
     const handleGenerate = () => {
+        const finalPrompt = prompt === '' ? promptState.prompt : prompt;
         // ここに生成ロジックを実装
-        console.log('生成ボタンがクリックされました。プロンプト:', prompt);
+        console.log('生成ボタンがクリックされました。プロンプト:', finalPrompt);
     };
 
     return (
@@ -23,9 +34,11 @@ const PromptInput: React.FC = () => {
                 placeholder=""
                 className="flex-grow mr-2 focus:outline-none bg-transparent text-lg"
             />
-            <Button onClick={handleGenerate} className="whitespace-nowrap">
-                生成
-            </Button>
+            <Link to="/generate">
+                <Button onClick={handleGenerate} className="whitespace-nowrap">
+                    生成
+                </Button>
+            </Link>
         </div>
     );
 };
