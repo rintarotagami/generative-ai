@@ -1,6 +1,7 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Cube } from '@/components/three.js/cube';
+import * as THREE from 'three'; // Importing THREE to use Vector3
 
 interface CanvasComponentProps {
     className?: string;
@@ -9,7 +10,7 @@ interface CanvasComponentProps {
 }
 
 const CanvasComponent: React.FC<CanvasComponentProps> = ({ className, style }) => {
-    const cubes = Array.from({ length: 50 }, (_, i) => ({
+    const cubes = Array.from({ length: 50 }, () => ({
         position: [
             (Math.random() - 0.5) * 10,
             (Math.random() - 0.5) * 10,
@@ -29,7 +30,7 @@ const CanvasComponent: React.FC<CanvasComponentProps> = ({ className, style }) =
                 }}
             >
                 {cubes.map((cube, index) => (
-                    <mesh key={index} position={cube.position}>
+                    <mesh key={index} position={new THREE.Vector3(...cube.position)}>
                         <boxGeometry args={[1, 1, 1]} />
                         <meshPhongMaterial color="aqua" />
                     </mesh>
