@@ -37,33 +37,44 @@ const treeData = [
     },
     {
         title: "評価シート作成",
-        key: "0-0",
+        key: "0-1",
         icon: <TbPencilPlus className="text-2xl" />,
         link: "/sheet-management",
         border: true,
     },
     {
         title: "社員管理",
-        key: "0-1",
+        key: "0-2",
         icon: <TbUsers className="text-2xl" />,
         link: "/user-management",
     },
     {
         title: "会社目標登録",
-        key: "0-2",
+        key: "0-3",
         icon: <TbCircleDotted className="text-2xl" />,
         link: "/company-goal",
         border: true,
     },
     {
         title: "ログアウト",
-        key: "0-3",
+        key: "0-4",
         icon: <TbLogout className="text-2xl" />,
         link: "/phpkadai05/logout",
     },
 ];
 
-const TreeNode = ({ node }) => {
+interface TreeNodeProps {
+    node: {
+        title: string;
+        key: string;
+        icon?: JSX.Element;
+        link: string;
+        children?: TreeNodeProps['node'][];
+        border?: boolean;
+    };
+}
+
+const TreeNode: React.FC<TreeNodeProps> = ({ node }) => {
     const [expanded, setExpanded] = useState(false);
     const handleExpand = () => {
         setExpanded(!expanded);
@@ -103,8 +114,13 @@ const TreeNode = ({ node }) => {
     );
 };
 
-const SideMenu = ({ menuVisible, className }) => {
-    const { props } = usePage();
+interface SideMenuProps {
+    menuVisible: boolean;
+    className: string;
+}
+
+const SideMenu: React.FC<SideMenuProps> = ({ menuVisible, className }) => {
+    const props = { isAdmin: true }; // 仮のpropsを設定
     const { isAdmin } = props;
 
     return (
@@ -122,7 +138,7 @@ const SideMenu = ({ menuVisible, className }) => {
                         {treeData.map(
                             (node) =>
                                 // isAdminがtrueの場合のみ表示
-                                (node.title !== "会社目標登録" || isAdmin) && (
+                                (node.title !== "管理画面" || isAdmin) && (
                                     <TreeNode key={node.key} node={node} />
                                 )
                         )}
