@@ -35,7 +35,7 @@ const PromptInput: React.FC = () => {
     };
 
     return (
-        <div className="w-3/4 max-h-14 min-h-12 flex items-center px-5 py-2 bg-white rounded-full border border-black">
+        <div className="w-5/6 md:w-3/4 max-h-14 min-h-12 flex items-center px-5 py-2 bg-white rounded-full border border-black">
             <input
                 type="text"
                 id="prompt-input"
