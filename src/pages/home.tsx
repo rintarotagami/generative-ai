@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import PromptInput from "@/components/page-ui/home/promptInput"
 import Gallery from "@/components/page-ui/home/gallery"
 import CanvasComponent from "@/components/page-ui/home/canvas"

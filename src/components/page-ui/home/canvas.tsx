@@ -1,7 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Cube } from '@/components/three.js/cube';
-import * as THREE from 'three'; // Importing THREE to use Vector3
+import * as THREE from 'three';
 
 interface CanvasComponentProps {
     className?: string;

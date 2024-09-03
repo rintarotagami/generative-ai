@@ -6,7 +6,7 @@ import { promptAtom } from '@/atoms/promptAtoms';
 
 const PromptInput: React.FC = () => {
     const [prompt, setPrompt] = useState('');
-    const [promptState] = useAtom(promptAtom);
+    const [promptState, setPromptState] = useAtom(promptAtom);
 
     useEffect(() => {
         if (prompt === '' || promptState.useTemplate) {
@@ -15,7 +15,17 @@ const PromptInput: React.FC = () => {
     }, [prompt, promptState]);
 
     const handlePromptChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPrompt(event.target.value);
+        const newPrompt = event.target.value;
+        setPrompt(newPrompt);
+        setPromptState((prevState) => {
+            const newState = {
+                ...prevState,
+                useTemplate: newPrompt === '',
+                prompt: newPrompt,
+            };
+            console.log('新しいアトムの値:', newState);
+            return newState;
+        });
     };
 
     const handleGenerate = () => {

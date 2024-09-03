@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { Label } from "@/components/ui/label";
 import SelectComponent from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
 import PromptArea from "@/components/page-ui/generate/promptarea";
 import { promptAtom } from "@/atoms/promptAtoms";
 
@@ -10,16 +9,16 @@ export default function Component() {
     const [promptState] = useAtom(promptAtom);
     const [prompt, setPrompt] = useState(promptState.prompt);
     const [negativePrompt, setNegativePrompt] = useState(promptState.negative_prompt);
-    const [width, setWidth] = useState(promptState.width);
-    const [height, setHeight] = useState(promptState.height);
-    const [tags, setTags] = useState(promptState.tags);
+    // const [width, setWidth] = useState(promptState.width);
+    // const [height, setHeight] = useState(promptState.height);
+    // const [model, setModel] = useState(promptState.model);
 
     useEffect(() => {
         setPrompt(promptState.prompt);
         setNegativePrompt(promptState.negative_prompt);
-        setWidth(promptState.width);
-        setHeight(promptState.height);
-        setTags(promptState.tags);
+        // setWidth(promptState.width);
+        // setHeight(promptState.height);
+        // setModel(promptState.model);
     }, [promptState]);
 
     return (

@@ -12,20 +12,25 @@ interface GalleryCardProps {
     tags: string;
 }
 
-const GalleryCard: React.FC<GalleryCardProps> = ({ src, alt, prompt, negative_prompt, width, height, tags }) => {
+const GalleryCard: React.FC<GalleryCardProps> = ({ src, alt, prompt, negative_prompt, width, height }) => {
     const setPrompt = useSetAtom(promptAtom);
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-        const newPrompt = {
-            prompt,
-            negative_prompt,
-            width,
-            height,
-            tags,
-            useTemplate: true
-        };
-        setPrompt(newPrompt);
-        console.log(newPrompt);
+        setPrompt((prevPrompt) => {
+            if (prevPrompt.useTemplate) {
+                const newPrompt = {
+                    prompt,
+                    negative_prompt,
+                    width,
+                    height,
+                    useTemplate: true,
+                    model: ''
+                };
+                console.log(newPrompt);
+                return newPrompt;
+            }
+            return prevPrompt;
+        });
         event.currentTarget.style.border = '2px solid white';
     };
 
