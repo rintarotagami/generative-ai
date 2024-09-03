@@ -35,30 +35,30 @@ export default function Component() {
         <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 p-4 rounded-lg shadow-lg">Make Itを使って簡単に画像生成</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="rounded-lg border border-gray-300 overflow-hidden">
-            <div className="h-40 bg-gray-200">
+            <div className="h-32 md:h-40 bg-gray-200">
               <img src={noImage} alt="機能の説明画像" className="w-full h-full object-cover" />
             </div>
-            <div className="p-4 bg-white">
-              <h3 className="text-xl font-semibold">まとめて画像生成</h3>
-              <p className="text-gray-700">一度に複数の画像を生成し、時間を節約しましょう。</p>
+            <div className="p-2 md:p-4 bg-white">
+              <h3 className="text-lg md:text-xl font-semibold">まとめて画像生成</h3>
+              <p className="text-gray-700 text-sm md:text-base">一度に複数の画像を生成し、時間を節約しましょう。</p>
             </div>
           </div>
           <div className="rounded-lg border border-gray-300 overflow-hidden">
-            <div className="h-40 bg-gray-200">
+            <div className="h-32 md:h-40 bg-gray-200">
               <img src={noImage} alt="機能の説明画像" className="w-full h-full object-cover" />
             </div>
-            <div className="p-4 bg-white">
-              <h3 className="text-xl font-semibold">自由なスタイル変更</h3>
-              <p className="text-gray-700">AIを使って、画像のスタイルを自由に変更できます。</p>
+            <div className="p-2 md:p-4 bg-white">
+              <h3 className="text-lg md:text-xl font-semibold">自由なスタイル変更</h3>
+              <p className="text-gray-700 text-sm md:text-base">AIを使って、画像のスタイルを自由に変更できます。</p>
             </div>
           </div>
           <div className="rounded-lg border border-gray-300 overflow-hidden">
-            <div className="h-40 bg-gray-200">
+            <div className="h-32 md:h-40 bg-gray-200">
               <img src={noImage} alt="機能の説明画像" className="w-full h-full object-cover" />
             </div>
-            <div className="p-4 bg-white">
-              <h3 className="text-xl font-semibold">カメラアングルの指定</h3>
-              <p className="text-gray-700">カメラアングルを指定して、理想の画像を生成しましょう。</p>
+            <div className="p-2 md:p-4 bg-white">
+              <h3 className="text-lg md:text-xl font-semibold">カメラアングルの指定</h3>
+              <p className="text-gray-700 text-sm md:text-base">カメラアングルを指定して、理想の画像を生成しましょう。</p>
             </div>
           </div>
         </div>

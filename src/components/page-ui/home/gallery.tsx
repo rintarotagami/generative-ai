@@ -20,18 +20,18 @@ const Gallery: React.FC = () => {
     }, []);
 
     const images = [
-        { src: test34, alt: "Image 2", prompt: "美しい風景", negative_prompt: "曇り", width: 800, height: 600 },
+        { src: test34, alt: "Image 2", prompt: "笹の葉がチョークで描かれた黒板", negative_prompt: "low quality, worst quality, real bamboo", width: 800, height: 600 },
         { src: noImage, alt: "Image 3", prompt: "シンプルなデザイン", negative_prompt: "複雑", width: 1024, height: 768 },
-        { src: test43, alt: "Image 4", prompt: "夜の街", negative_prompt: "昼間", width: 640, height: 480 },
-        { src: test34, alt: "Image 2", prompt: "美しい風景", negative_prompt: "曇り", width: 800, height: 600 },
+        { src: test43, alt: "Image 4", prompt: "パンダたちが通う学校の教室", negative_prompt: "low quality, worst quality, ugly, human", width: 640, height: 480 },
+        { src: test34, alt: "Image 2", prompt: "笹の葉がチョークで描かれた黒板", negative_prompt: "low quality, worst quality, real bamboo", width: 800, height: 600 },
         { src: noImage, alt: "Image 3", prompt: "シンプルなデザイン", negative_prompt: "複雑", width: 1024, height: 768 },
-        { src: test43, alt: "Image 4", prompt: "夜の街", negative_prompt: "昼間", width: 640, height: 480 },
-        { src: test34, alt: "Image 2", prompt: "美しい風景", negative_prompt: "曇り", width: 800, height: 600 },
+        { src: test43, alt: "Image 4", prompt: "パンダたちが通う学校の教室", negative_prompt: "low quality, worst quality, ugly, human", width: 640, height: 480 },
+        { src: test34, alt: "Image 2", prompt: "笹の葉がチョークで描かれた黒板", negative_prompt: "low quality, worst quality, real bamboo", width: 800, height: 600 },
         { src: noImage, alt: "Image 3", prompt: "シンプルなデザイン", negative_prompt: "複雑", width: 1024, height: 768 },
-        { src: test43, alt: "Image 4", prompt: "夜の街", negative_prompt: "昼間", width: 640, height: 480 },
-        { src: test34, alt: "Image 2", prompt: "美しい風景", negative_prompt: "曇り", width: 800, height: 600 },
+        { src: test43, alt: "Image 4", prompt: "パンダたちが通う学校の教室", negative_prompt: "low quality, worst quality, ugly, human", width: 640, height: 480 },
+        { src: test34, alt: "Image 2", prompt: "笹の葉がチョークで描かれた黒板", negative_prompt: "low quality, worst quality, real bamboo", width: 800, height: 600 },
         { src: noImage, alt: "Image 3", prompt: "シンプルなデザイン", negative_prompt: "複雑", width: 1024, height: 768 },
-        { src: test43, alt: "Image 4", prompt: "夜の街", negative_prompt: "昼間", width: 640, height: 480 },
+        { src: test43, alt: "Image 4", prompt: "パンダたちが通う学校の教室", negative_prompt: "low quality, worst quality, ugly, human", width: 640, height: 480 },
     ];
 
     return (
